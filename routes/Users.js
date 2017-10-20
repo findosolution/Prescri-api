@@ -26,12 +26,12 @@ apiRouter.route('/users')
 
     console.log(req.body);
 
-		userModel.addUser(user);
+	 	return userModel.addUser(user, res);
 
 	})
 	.get(function(req, res) {
 		// Firebase get all users
-		userModel.getAllUsers();
+		return userModel.getAllUsers(res);
 	});
 
 module.exports = apiRouter;

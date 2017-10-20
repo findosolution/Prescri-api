@@ -7,7 +7,7 @@ var usersRef = db.ref('users');
 
 var Users = {
 
-    addUser:function(user){
+    addUser:function(user,res){
 
       return usersRef.push(user, function(err) {
         if (err) {
@@ -18,7 +18,7 @@ var Users = {
       });
 
     },
-    getAllUsers : function() {
+    getAllUsers : function(res) {
       return usersRef.once("value", function(snapshot, prevChildKey) {
   			res.json(snapshot.val());
   		})
